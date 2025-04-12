@@ -30,13 +30,77 @@ Step 7: Save and run the application.
 ```
 /*
 Program to create and design an android application Send SMS using Intent.
-Developed by:
-Registeration Number :
+Developed by: Tarun S S.
+Registeration Number : 212222040171
 */
 ```
 
-## OUTPUT
+## MainActivity.java:
+```
+/*
+package com.example.exp4;
 
+import android.os.Bundle;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+        Button mbutton=(Button) findViewById(R.id.smsButton);
+        mbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms","<your_Number>",null));
+                intent.putExtra("sms_body","SMS using Intent");
+                startActivity(intent);
+            }
+        });
+    }
+}
+/*
+```
+
+## activitymain.xml:
+```
+/*
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/smsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/design_default_color_secondary"
+        android:text="send sms"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+
+</RelativeLayout>
+/*
+```
+
+
+## OUTPUT
+<img src="https://github.com/user-attachments/assets/227ee2c0-8d04-4923-9ef2-b889b0939d08" width=240>
 
 
 ## RESULT
